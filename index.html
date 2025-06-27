@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Colvert</title>
+	<meta name="description" content="Convert color values to different values you desire.">
+	
+	<style>
+		* {
+		    box-sizing: border-box;
+		    font-family: 'Segoe UI', sans-serif;
+		}
+
+		body {
+		    margin: 0;
+		    padding: 2rem;
+		    background: #f0f0f0;
+		    display: flex;
+		    justify-content: center;
+		    align-items: flex-start;
+		    min-height: 100vh;
+		}
+
+		.container {
+		    background: #fff;
+		    border-radius: 12px;
+		    padding: 2rem;
+		    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		    max-width: 500px;
+		    width: 100%;
+		}
+
+		h1, h2 {
+		    margin-top: 0;
+		    font-size: 1.5rem;
+		    text-align: center;
+		    color: #333;
+		}
+		
+		h2 { 
+			font-family: cursive;
+			font-size: 1.2rem;
+		}
+
+		.field {
+		    margin-bottom: 1.5rem;
+		}
+
+		label {
+		    display: block;
+		    margin-bottom: 0.5rem;
+		    font-weight: 600;
+		}
+
+		input[type="text"] {
+		    width: 100%;
+		    padding: 0.75rem;
+		    border: 1px solid #ccc;
+		    border-radius: 8px;
+		    font-size: 1rem;
+		}
+		
+		.field p {
+			font-size: 12px;
+			color: red;
+		}
+		
+		.field div {
+			display: flex;
+			justify-content: space-evenly;
+		}
+		
+		.field button {
+			border: none;
+			border-radius: 5px;
+			padding: 8px 12px;
+			background-color: #aaa;
+			cursor: pointer;
+		}
+		
+		.field button:hover { color: white }
+
+		.color-preview {
+		    width: 100%;
+		    height: 100px;
+			border: 4px dashed black;
+		    border-radius: 8px;
+		    margin-top: 1rem;
+		    background: #ccc;
+		    transition: background 0.3s ease;
+		}
+		
+		h4 {
+			display: none;
+			width: 200px;
+			margin: 14px auto;
+			padding: 4px;
+			border: 2px groove gray;
+			border-radius: 7px;
+			text-align: center;
+			color: gray;
+			cursor: pointer;
+		}
+		
+		h4:hover { background-color: lightgray;
+
+		@media (max-width: 500px) {
+		    .container {
+				padding: 1rem;
+		    }
+		}
+	</style>
+</head>
+<body>
+    <div class="container">
+		<h1>Colvert</h1>
+		
+		<div class="field">
+		    <label for="hex">HEX</label>
+		    <input type="text" id="hex" placeholder="#RRGGBB or #RGB" maxLength="7" />
+			<p id="hex-warning"></p>
+			<div>
+			<button id="hex-to-rgb">RGB</button> <button id="hex-to-hsl">HSL</button>
+			</div>
+		</div>
+
+		<div class="field">
+		    <label for="rgb">RGB / RGBA</label>
+		    <input type="text" id="rgb" placeholder="rgb(255, 255, 255) / rgba(255, 255, 255, 1)" maxLength="25" />
+			<p id="rgb-warning"></p>
+			<div>
+				<button id="rgb-to-hex">Hex</button> <button id="rgb-to-hsl">HSL</button>
+			</div>
+		</div>
+
+		<div class="field">
+		    <label for="hsl">HSL</label>
+		    <input type="text" id="hsl" placeholder="hsl(0, 100%, 50%)" maxLength="23" />
+			<p id="hsl-warning"></p>
+			<div>
+				<button id="hsl-to-hex">HEX</button> <button id="hsl-to-rgb">RGB</button>
+			</div>
+		</div>
+
+		<h2>Preview</h3>
+		<div class="color-preview"></div>
+		<h4 id="hex-conversion"></h4>
+		<h4 id="rgb-conversion"></h4>
+		<h4 id="short-rgb-conversion"></h4>
+		<h4 id="hsl-conversion"></h4>
+    </div>
+	<script src="convert.js"></script>
+</body>
+</html>
